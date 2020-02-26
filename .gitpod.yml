@@ -1,0 +1,9 @@
+ports:
+  - port: 8080
+
+tasks:
+  - command: node_modules/http-server/bin/http-server
+    name: HTTP Server
+  - before: alias lessify="find css/ -name '*.less' -exec node_modules/less/bin/lessc {} \; > css/combined.css"
+    command: clear && echo "Run 'lessify' to compile all css/*.less into css/combined.css"
+    name: Less Shell
